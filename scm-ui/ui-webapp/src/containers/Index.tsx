@@ -29,6 +29,8 @@ import ScrollToTop from "./ScrollToTop";
 import IndexErrorPage from "./IndexErrorPage";
 import { useIndex } from "@scm-manager/ui-api";
 import { Link } from "@scm-manager/ui-types";
+import { binder } from "@scm-manager/ui-extensions";
+import InitializationAdminAccountStep from "./InitializationAdminAccountStep";
 
 const Index: FC = () => {
   const { isLoading, error, data } = useIndex();
@@ -61,3 +63,5 @@ const Index: FC = () => {
 };
 
 export default Index;
+
+binder.bind("initialization.step.adminAccount", InitializationAdminAccountStep);
