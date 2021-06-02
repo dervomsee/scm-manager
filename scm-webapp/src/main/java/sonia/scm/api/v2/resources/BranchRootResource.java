@@ -275,7 +275,9 @@ public class BranchRootResource {
       .getBranches()
       .getBranches()
       .stream()
-      .anyMatch(branch -> branchName.equals(branch.getName()));
+      .anyMatch(branch -> branchName.equals(branch.getName())
+        || (branch.getName().contains("/") && branchName.equals(branch.getName().substring(0, branch.getName().indexOf("/"))))
+        || (branchName.contains("/") && branchName.substring(0, branchName.indexOf("/")).equals(branch.getName())));
   }
 
   /**
